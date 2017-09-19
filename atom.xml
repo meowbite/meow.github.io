@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>meowbite</title>
   
-  
+  <subtitle>认真生活~</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://meowbite.github.io/"/>
