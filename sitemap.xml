@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://meowbite.github.io/about/index.html</loc>
+    <loc>http://meowbite.github.io/2017/09/20/docker-compose/</loc>
     
-    <lastmod>2017-09-19T08:28:49.000Z</lastmod>
+    <lastmod>2017-09-20T05:23:23.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://meowbite.github.io/2017/09/19/hello-world/</loc>
     
-    <lastmod>2017-09-19T08:08:48.000Z</lastmod>
+    <lastmod>2017-09-19T09:06:50.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://meowbite.github.io/about/index.html</loc>
+    
+    <lastmod>2017-09-19T08:28:49.000Z</lastmod>
     
   </url>
   
