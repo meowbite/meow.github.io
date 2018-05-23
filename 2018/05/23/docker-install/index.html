@@ -16,8 +16,8 @@
 <li><p>xfs系统格式化的时候需要开启f_type 保障overlayfs性能</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">docker info</div><div class="line"> Supports d_type: true</div></pre></td></tr></table></figure>
 </li>
-<li><p>更多配置启动配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cat /usr/lib/systemd/system/docker.service</div><div class="line">ExecStart=/usr/bin/dockerd</div></pre></td></tr></table></figure>
+<li><p>启动配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cat /usr/lib/systemd/system/docker.service</div><div class="line">ExecStart=/usr/bin/dockerd  --storage-opt overlay2.override_kernel_check=1\</div><div class="line"> --storage-driver=overlay2 --graph=/home/docker</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><ul>
