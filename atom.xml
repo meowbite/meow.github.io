@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://meowbite.github.io/"/>
-  <updated>2018-05-23T02:46:11.000Z</updated>
+  <updated>2018-05-23T05:49:12.000Z</updated>
   <id>http://meowbite.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>linux运维进阶-free命令的学习</title>
+    <link href="http://meowbite.github.io/2018/05/23/linux-free-md/"/>
+    <id>http://meowbite.github.io/2018/05/23/linux-free-md/</id>
+    <published>2018-05-23T03:39:10.000Z</published>
+    <updated>2018-05-23T05:49:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="文档目的"><a href="#文档目的" class="headerlink" title="文档目的"></a>文档目的</h2><ul><li>深入学习free命令在运维中的使用</li><li><p>实战中总结常用命令，加深理解</p><h2 id="场景再现"><a href="#场景再现" class="headerlink" title="场景再现"></a>场景再现</h2><p>  在生产环境中，我们使用了一台安装了docker的机器来做镜像。<br>当同时执行大量docker build命令，并且Dockerfile引用的文件巨大时(大量数据会读入内存，使用完成后才释放)，会造成内存不够的报警。<br>此时需要运用free命令，查看系统状态和问题处理。</p><h2 id="free命令知识点总结"><a href="#free命令知识点总结" class="headerlink" title="free命令知识点总结"></a>free命令知识点总结</h2><p>与上述问题无关</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$free</div><div class="line">              total        used        free      shared  buff/cache   available</div><div class="line">Mem:      131777608     7835208      659484     4203836   123282916   117500900</div><div class="line">Swap:             0           0           0</div></pre></td></tr></table></figure></li><li><p>buff: A buffer is something that has yet to be “written” to disk.</p></li><li>cache: A cache is something that has been “read” from the disk and stored for later use.</li><li>total  = used + free</li><li><p>释放掉被系统cache占用的数据:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo 3&gt;/proc/sys/vm/drop_caches</div></pre></td></tr></table></figure></li><li><p>free命令由procps.*.rpm提供（在Redhat系列的OS上）。free命令的所有输出值都是从/proc/meminfo中读出的。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$which free</div><div class="line">/bin/free</div><div class="line">$rpm -qf /bin/free</div><div class="line">procps-ng-3.3.10-3.el7.x86_64</div></pre></td></tr></table></figure></li></ul><h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><ul><li><a href="http://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/free.html" target="_blank" rel="external">http://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/free.html</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;文档目的&quot;&gt;&lt;a href=&quot;#文档目的&quot; class=&quot;headerlink&quot; title=&quot;文档目的&quot;&gt;&lt;/a&gt;文档目的&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;深入学习free命令在运维中的使用&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;实战中总结常用命令，加深理解&lt;/p&gt;
+&lt;h2 id=
+      
+    
+    </summary>
+    
+    
+      <category term="linux运维进阶" scheme="http://meowbite.github.io/tags/linux%E8%BF%90%E7%BB%B4%E8%BF%9B%E9%98%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>Centos 7.2 上安装docker CE 18.05</title>
