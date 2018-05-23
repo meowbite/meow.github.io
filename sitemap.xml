@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://meowbite.github.io/2018/05/23/docker-install/</loc>
+    
+    <lastmod>2018-05-23T01:42:32.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://meowbite.github.io/2017/09/20/docker-compose/</loc>
     
     <lastmod>2018-05-23T01:22:35.000Z</lastmod>
