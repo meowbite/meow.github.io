@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://meowbite.github.io/2018/05/24/docker-images-size-md/</loc>
+    
+    <lastmod>2018-05-24T09:40:32.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://meowbite.github.io/about/index.html</loc>
+    
+    <lastmod>2018-05-24T08:56:21.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://meowbite.github.io/2018/05/24/docker-cgroup-md/</loc>
     
     <lastmod>2018-05-24T06:21:03.000Z</lastmod>
@@ -26,13 +40,6 @@
     <loc>http://meowbite.github.io/2018/05/23/linux-free-md/</loc>
     
     <lastmod>2018-05-23T07:18:29.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://meowbite.github.io/about/index.html</loc>
-    
-    <lastmod>2017-09-19T08:28:49.000Z</lastmod>
     
   </url>
   
