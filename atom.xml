@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://meowbite.github.io/"/>
-  <updated>2018-05-25T02:13:42.000Z</updated>
+  <updated>2018-06-01T01:18:11.000Z</updated>
   <id>http://meowbite.github.io/</id>
   
   <author>
@@ -15,6 +15,51 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>docker 分层结构问题汇总</title>
+    <link href="http://meowbite.github.io/2018/05/29/docker-questions-md/"/>
+    <id>http://meowbite.github.io/2018/05/29/docker-questions-md/</id>
+    <published>2018-05-29T08:29:47.000Z</published>
+    <updated>2018-06-01T01:18:11.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="文档目的"><a href="#文档目的" class="headerlink" title="文档目的"></a>文档目的</h1><p>由于docker镜像的分层结构，会引起一些列的使用上的问题。<br>镜像分层结构最大的特性是Copy-on-Write：</p><ul><li>新数据会直接存放在最上面的容器层。</li><li>修改现有数据会先从镜像层数据复制到容器层，修改后的数据直接保存在容器层中，镜像层保持不变。</li><li>如果多个层中有命名相同的文件，用户只能看到最上面那层中的文件。</li></ul><h1 id="环境信息"><a href="#环境信息" class="headerlink" title="环境信息"></a>环境信息</h1><ul><li>docker版本： 1.13.1</li><li>docker storage driver：overlayfs2</li><li>os版本：centos7.2 </li><li>内核版本：3.10.0-514.10.1.el7.toa.x86_64</li></ul><h1 id="问题一：原生的tail-f-不可用"><a href="#问题一：原生的tail-f-不可用" class="headerlink" title="问题一：原生的tail -f 不可用"></a>问题一：原生的tail -f 不可用</h1><h1 id="问题二：删除上层数据报错"><a href="#问题二：删除上层数据报错" class="headerlink" title="问题二：删除上层数据报错"></a>问题二：删除上层数据报错</h1><h1 id="问题三："><a href="#问题三：" class="headerlink" title="问题三："></a>问题三：</h1>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;文档目的&quot;&gt;&lt;a href=&quot;#文档目的&quot; class=&quot;headerlink&quot; title=&quot;文档目的&quot;&gt;&lt;/a&gt;文档目的&lt;/h1&gt;&lt;p&gt;由于docker镜像的分层结构，会引起一些列的使用上的问题。&lt;br&gt;镜像分层结构最大的特性是Copy-on-Write：&lt;/
+      
+    
+    </summary>
+    
+    
+      <category term="docker进阶" scheme="http://meowbite.github.io/tags/docker%E8%BF%9B%E9%98%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>docker-attention-overlayfs.md</title>
+    <link href="http://meowbite.github.io/2018/05/25/docker-attention-overlayfs-md/"/>
+    <id>http://meowbite.github.io/2018/05/25/docker-attention-overlayfs-md/</id>
+    <published>2018-05-25T08:10:19.000Z</published>
+    <updated>2018-06-01T01:11:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>#</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;#&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>巧用overlayfs特性，优化镜像SIZE</title>
