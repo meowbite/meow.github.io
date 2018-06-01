@@ -40,28 +40,6 @@
   </entry>
   
   <entry>
-    <title>docker-attention-overlayfs.md</title>
-    <link href="http://meowbite.github.io/2018/05/25/docker-attention-overlayfs-md/"/>
-    <id>http://meowbite.github.io/2018/05/25/docker-attention-overlayfs-md/</id>
-    <published>2018-05-25T08:10:19.000Z</published>
-    <updated>2018-06-01T01:11:05.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>#</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;#&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>巧用overlayfs特性，优化镜像SIZE</title>
     <link href="http://meowbite.github.io/2018/05/24/docker-images-size-md/"/>
     <id>http://meowbite.github.io/2018/05/24/docker-images-size-md/</id>
