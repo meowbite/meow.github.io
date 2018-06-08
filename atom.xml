@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://meowbite.github.io/"/>
-  <updated>2018-06-01T03:27:38.000Z</updated>
+  <updated>2018-06-08T03:40:40.000Z</updated>
   <id>http://meowbite.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>docker-supervisord.md</title>
+    <link href="http://meowbite.github.io/2018/06/08/docker-supervisord-md/"/>
+    <id>http://meowbite.github.io/2018/06/08/docker-supervisord-md/</id>
+    <published>2018-06-08T02:44:36.000Z</published>
+    <updated>2018-06-08T03:40:40.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="文档目的"><a href="#文档目的" class="headerlink" title="文档目的"></a>文档目的</h1><p>线上case，记录、研究、总结</p><h1 id="场景再现"><a href="#场景再现" class="headerlink" title="场景再现"></a>场景再现</h1><p>在docker容器中，发现supervisord托管的服务不能启动了。报错如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">supervisor: couldn&apos;t exec /home/abc/control.sh: EAGAIN</div><div class="line">supervisor: child process was not spawned</div><div class="line">supervisor: couldn&apos;t exec /home/abc/control.sh: EAGAIN</div><div class="line">supervisor: child process was not spawned</div><div class="line">supervisor: couldn&apos;t exec /home/abc/control.sh: EAGAIN</div><div class="line">supervisor: child process was not spawned</div></pre></td></tr></table></figure><h1 id="问题表现"><a href="#问题表现" class="headerlink" title="问题表现"></a>问题表现</h1><ul><li>不使用supervisord，服务可以启动</li><li>容器飘走，在别的机器上可以启动</li><li>supervisord启动的进程和非supervisord托管的进程 Max processes值不一样（容器小于主机上的值）</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">非supervisord进程</div><div class="line">$cat /proc/25754/limits</div><div class="line">Limit                     Soft Limit           Hard Limit           Units</div><div class="line">Max processes             514702               514702               processes</div></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">supervisord启动的进程</div><div class="line">$cat /proc/25756/limits</div><div class="line">Limit                     Soft Limit           Hard Limit           Units</div><div class="line">Max processes             10000                10000                processes</div></pre></td></tr></table></figure><ul><li>有问题容器的主机上有线程超过10000的进程</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ps -T  2454|wc -l</div><div class="line">5000</div></pre></td></tr></table></figure><h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><ul><li>将supervisord源码中，默认添加的limit值进行修改</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">#centos6上supervisord在/etc/init.d/supervisord</div><div class="line">#centos7上supervisord在/usr/bin/start_supervisord.sh</div><div class="line">$cat /usr/bin/start_supervisord.sh</div><div class="line">#!/bin/bash</div><div class="line">DAEMON_COREFILE_LIMIT=100000000</div><div class="line">ulimit -c 100000000</div><div class="line">ulimit -d unlimited</div><div class="line">ulimit -e 0</div><div class="line">ulimit -f unlimited</div><div class="line">ulimit -i 600000</div><div class="line">ulimit -l 64</div><div class="line">ulimit -m unlimited</div><div class="line">ulimit -n 1000000</div><div class="line">ulimit -q 819200</div><div class="line">ulimit -r 0</div><div class="line">ulimit -s 102400</div><div class="line">ulimit -t unlimited</div><div class="line">ulimit -u 10000</div><div class="line">ulimit -v unlimited</div><div class="line">ulimit -x unlimited</div><div class="line">/usr/bin/supervisord -c /etc/supervisord.conf</div></pre></td></tr></table></figure><p>修改过后容器里supervisord里服务就可以正常启动了。</p><h1 id="知识点总结"><a href="#知识点总结" class="headerlink" title="知识点总结"></a>知识点总结</h1><ul><li>supervisord里有专门设置ulimit的地方。</li><li>容器里进程的limit相关值，是和主机共享的。</li><li>查看所有线程命令。</li><li><p>线程数也会算在容器里 ulimit -u 中的值中。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ps -T PID</div></pre></td></tr></table></figure></li><li><p>查看进程里正在生效的limits值</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$cat /proc/PID/limits</div></pre></td></tr></table></figure><h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><ul><li><a href="http://liyangliang.me/posts/2015/06/using-supervisor/" target="_blank" rel="external">http://liyangliang.me/posts/2015/06/using-supervisor/</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;文档目的&quot;&gt;&lt;a href=&quot;#文档目的&quot; class=&quot;headerlink&quot; title=&quot;文档目的&quot;&gt;&lt;/a&gt;文档目的&lt;/h1&gt;&lt;p&gt;线上case，记录、研究、总结&lt;/p&gt;
+&lt;h1 id=&quot;场景再现&quot;&gt;&lt;a href=&quot;#场景再现&quot; class=&quot;heade
+      
+    
+    </summary>
+    
+    
+      <category term="docker运维" scheme="http://meowbite.github.io/tags/docker%E8%BF%90%E7%BB%B4/"/>
+    
+  </entry>
   
   <entry>
     <title>docker 分层结构问题汇总</title>
