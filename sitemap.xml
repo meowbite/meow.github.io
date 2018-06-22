@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://meowbite.github.io/2018/06/21/jenkins-cli-md/</loc>
+    
+    <lastmod>2018-06-22T02:53:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://meowbite.github.io/2018/06/08/docker-supervisord-md/</loc>
     
     <lastmod>2018-06-08T03:43:38.000Z</lastmod>
