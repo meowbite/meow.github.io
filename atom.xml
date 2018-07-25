@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://meowbite.github.io/"/>
-  <updated>2018-06-22T03:08:21.000Z</updated>
+  <updated>2018-07-25T02:03:33.000Z</updated>
   <id>http://meowbite.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Jenkins (一) 基础介绍</title>
+    <link href="http://meowbite.github.io/2018/07/25/pipeline-intro/"/>
+    <id>http://meowbite.github.io/2018/07/25/pipeline-intro/</id>
+    <published>2018-07-25T01:48:56.000Z</published>
+    <updated>2018-07-25T02:03:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="文档目的"><a href="#文档目的" class="headerlink" title="文档目的"></a>文档目的</h1><ul><li>本系列文档用于总结jenkins常用知识，围绕jenkins pipeline、docker等相关内容展开。</li></ul><h2 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h2><ul><li>Pre install:<ul><li>java 8</li><li>Docker</li></ul></li></ul><h2 id="Download-and-run-Jenkins"><a href="#Download-and-run-Jenkins" class="headerlink" title="Download and run Jenkins"></a>Download and run Jenkins</h2><ul><li>Download jenkins: </li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war</div></pre></td></tr></table></figure><ul><li>Run:</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -jar jenkins.war --httpPort=8080</div></pre></td></tr></table></figure><ul><li>Browse to:</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://localhost:8080</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;文档目的&quot;&gt;&lt;a href=&quot;#文档目的&quot; class=&quot;headerlink&quot; title=&quot;文档目的&quot;&gt;&lt;/a&gt;文档目的&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;本系列文档用于总结jenkins常用知识，围绕jenkins pipeline、docker等相关内容展开。&lt;/
+      
+    
+    </summary>
+    
+    
+      <category term="jenkins" scheme="http://meowbite.github.io/tags/jenkins/"/>
+    
+  </entry>
   
   <entry>
     <title>jenkins-cli 学习</title>
