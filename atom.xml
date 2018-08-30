@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://meowbite.github.io/"/>
-  <updated>2018-07-25T02:03:33.000Z</updated>
+  <updated>2018-08-09T01:11:48.000Z</updated>
   <id>http://meowbite.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>golang开发环境搭建</title>
+    <link href="http://meowbite.github.io/2018/08/09/golang-mvc/"/>
+    <id>http://meowbite.github.io/2018/08/09/golang-mvc/</id>
+    <published>2018-08-09T00:50:27.000Z</published>
+    <updated>2018-08-09T01:11:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">├── LICENSE</div><div class="line">├── cmd</div><div class="line">│   └── root.go   //入口</div><div class="line">├── config       //配置</div><div class="line">├── main.go</div><div class="line">├── pkg           </div><div class="line">└── server</div><div class="line">    ├── controller     </div><div class="line">    ├── metric         //上报监控</div><div class="line">    ├── middleware     //第三方认证之类</div><div class="line">    ├── server.go      //routers 和controller初始化</div><div class="line">    ├── service        //dao</div><div class="line">    └── utils          //工具函数</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;目录结构&quot;&gt;&lt;a href=&quot;#目录结构&quot; class=&quot;headerlink&quot; title=&quot;目录结构&quot;&gt;&lt;/a&gt;目录结构&lt;/h1&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pr
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Jenkins (一) 基础介绍</title>
@@ -45,17 +66,16 @@
     <link href="http://meowbite.github.io/2018/06/21/jenkins-cli-md/"/>
     <id>http://meowbite.github.io/2018/06/21/jenkins-cli-md/</id>
     <published>2018-06-21T02:19:35.000Z</published>
-    <updated>2018-06-22T03:08:21.000Z</updated>
+    <updated>2018-08-30T02:38:23.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="文档简介"><a href="#文档简介" class="headerlink" title="文档简介"></a>文档简介</h1><ul><li>jenkins CLI 是jenkins提供的命令行工具。</li><li>使用jenkins CLI 我们可以在命令行上操作jenkins。</li><li>也可以利用jenkins CLI 开发定制化工具。<h1 id="下载client"><a href="#下载client" class="headerlink" title="下载client"></a>下载client</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$wget http://URL/jnlpJars/jenkins-cli.jar</div></pre></td></tr></table></figure></li></ul><h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 免密访问时</div><div class="line">java -jar jenkins-cli.jar -noKeyAuth -s http://localhost:8080/ help</div><div class="line"></div><div class="line"># 需要认证时</div><div class="line"></div><div class="line">java -jar jenkins-cli.jar -noKeyAuth -s http://localhost:8080/ help --username admin</div></pre></td></tr></table></figure><h1 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h1><p><img src="/2018/06/21/jenkins-cli-md/./jenkins-cli.png" alt=""></p><h1 id="bug"><a href="#bug" class="headerlink" title="bug"></a>bug</h1><p>pipeline类型的job，经常遇到找不见的case<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$java -jar jenkins-cli.jar -noKeyAuth  -s http://localhost:8080/ build abcd-cde  --username admin</div><div class="line"></div><div class="line">ERROR: No such job &apos;abcd-cde&apos;; perhaps you meant &apos;test-growth&apos;</div></pre></td></tr></table></figure></p><h1 id="其他工具"><a href="#其他工具" class="headerlink" title="其他工具"></a>其他工具</h1><ul><li>gojenkins: <a href="https://godoc.org/github.com/bndr/gojenkins" target="_blank" rel="external">https://godoc.org/github.com/bndr/gojenkins</a></li></ul>]]></content>
+    <content type="html"><![CDATA[<p><img src="/2018/06/21/jenkins-cli-md/../jenkins-cli-md/jenkins-logo.jpeg" alt=""></p><h1 id="文档简介"><a href="#文档简介" class="headerlink" title="文档简介"></a>文档简介</h1><ul><li>jenkins CLI 是jenkins提供的命令行工具。</li><li>使用jenkins CLI 我们可以在命令行上操作jenkins。</li><li>也可以利用jenkins CLI 开发定制化工具。<h1 id="下载client"><a href="#下载client" class="headerlink" title="下载client"></a>下载client</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$wget http://URL/jnlpJars/jenkins-cli.jar</div></pre></td></tr></table></figure></li></ul><h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 免密访问时</div><div class="line">java -jar jenkins-cli.jar -noKeyAuth -s http://localhost:8080/ help</div><div class="line"></div><div class="line"># 需要认证时</div><div class="line"></div><div class="line">java -jar jenkins-cli.jar -noKeyAuth -s http://localhost:8080/ help --username admin</div></pre></td></tr></table></figure><h1 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h1><p><img src="/2018/06/21/jenkins-cli-md/./jenkins-cli.png" alt=""></p><h1 id="bug"><a href="#bug" class="headerlink" title="bug"></a>bug</h1><p>pipeline类型的job，经常遇到找不见的case<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$java -jar jenkins-cli.jar -noKeyAuth  -s http://localhost:8080/ build abcd-cde  --username admin</div><div class="line"></div><div class="line">ERROR: No such job &apos;abcd-cde&apos;; perhaps you meant &apos;test-growth&apos;</div></pre></td></tr></table></figure></p><h1 id="其他工具"><a href="#其他工具" class="headerlink" title="其他工具"></a>其他工具</h1><ul><li>gojenkins: <a href="https://godoc.org/github.com/bndr/gojenkins" target="_blank" rel="external">https://godoc.org/github.com/bndr/gojenkins</a></li></ul>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;文档简介&quot;&gt;&lt;a href=&quot;#文档简介&quot; class=&quot;headerlink&quot; title=&quot;文档简介&quot;&gt;&lt;/a&gt;文档简介&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;jenkins CLI 是jenkins提供的命令行工具。&lt;/li&gt;
-&lt;li&gt;使用jenkins CLI 我们可
+        &lt;p&gt;&lt;img src=&quot;/2018/06/21/jenkins-cli-md/../jenkins-cli-md/jenkins-logo.jpeg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;文档简介&quot;&gt;&lt;a href=&quot;#文档简介&quot; class=&quot;headerlink&quot; ti
       
     
     </summary>
