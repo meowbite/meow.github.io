@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://meowbite.github.io/"/>
-  <updated>2018-08-09T01:11:48.000Z</updated>
+  <updated>2018-08-30T02:46:24.000Z</updated>
   <id>http://meowbite.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://meowbite.github.io/2018/08/09/golang-mvc/"/>
     <id>http://meowbite.github.io/2018/08/09/golang-mvc/</id>
     <published>2018-08-09T00:50:27.000Z</published>
-    <updated>2018-08-09T01:11:48.000Z</updated>
+    <updated>2018-08-30T02:46:24.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">├── LICENSE</div><div class="line">├── cmd</div><div class="line">│   └── root.go   //入口</div><div class="line">├── config       //配置</div><div class="line">├── main.go</div><div class="line">├── pkg           </div><div class="line">└── server</div><div class="line">    ├── controller     </div><div class="line">    ├── metric         //上报监控</div><div class="line">    ├── middleware     //第三方认证之类</div><div class="line">    ├── server.go      //routers 和controller初始化</div><div class="line">    ├── service        //dao</div><div class="line">    └── utils          //工具函数</div></pre></td></tr></table></figure>]]></content>
     
@@ -34,6 +34,8 @@
     
     </summary>
     
+    
+      <category term="草稿" scheme="http://meowbite.github.io/tags/%E8%8D%89%E7%A8%BF/"/>
     
   </entry>
   
